@@ -125,36 +125,61 @@
         <!-- ======= Features Section ======= -->
         <section id="features" class="features">
             <div class="container">
-                <ul class="nav nav-tabs d-flex gap-md-4 flex-nowrap gap-1">
+                <ul class="nav nav-tabs d-flex gap-md-4 flex-nowrap gap-1" style="overflow-x: scroll">
+                    <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="300">
+                        <a class="nav-link  active show" data-bs-toggle="tab" href="#tab-1">
+                            <i class="bi bi-info"></i>
+                            <h4 class="d-none d-lg-block">Online Class</h4>
+                        </a>
+                    </li>
                     <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
-                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
                             <i class="bi bi-camera"></i>
                             <h4 class="d-none d-lg-block">Digital Design</h4>
                         </a>
                     </li>
                     <li class="nav-item col-3" data-aos="zoom-in">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
                             <i class="bi bi-camera-reels"></i>
                             <h4 class="d-none d-lg-block">Photography</h4>
                         </a>
                     </li>
                     <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="100">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
                             <i class="bi bi-flower1"></i>
                             <h4 class="d-none d-lg-block">Videography</h4>
                         </a>
                     </li>
                     <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="300">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-5">
                             <i class="bi bi-printer"></i>
                             <h4 class="d-none d-lg-block">Printing</h4>
                         </a>
                     </li>
+                    
                 </ul>
 
                 <div class="tab-content" data-aos="fade-up">
                     <div class="tab-pane active show" id="tab-1">
                         <div class="row">
+                            <div class="col-lg-6 order-lg-1 mt-lg-0 order-2 mt-3">
+                                <h3>Membantu anda lebih cepat selangkah lebih maju!</h3>
+                                <p>
+                                    Dengan kelas online ini kami pastikan anda bisa lebih cepat
+                                    mempelajari arti kesenangan sesungguhnya dalam menelusuri 
+                                    ilmu pengetahuan lebih baik dari sebelumnya!
+                                </p>
+                                <a href="{{ route('user.uclass.index') }}" class="btn btn-color order-button">
+                                    Order!
+                                </a>
+                            </div>
+                            <div class="col-lg-6 order-lg-2 order-1 text-center">
+                                <img src="{{ asset('assets/img/print.jpg') }}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="tab-2">
+                        <div class="row">                            
                             <div class="col-lg-6 order-lg-1 mt-lg-0 order-2 mt-3">
                                 <h3>Mengubah Konsep - Konsep yang Telah Anda Buat Menjadi Desain
                                     yang Memikat</h3>
@@ -180,7 +205,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab-2">
+                    <div class="tab-pane" id="tab-3">
                         <div class="row">
                             <div class="col-lg-6 order-lg-1 mt-lg-0 order-2 mt-3">
                                 <h3>Memburu Moment yang Mengabadikan Keindahan Dalam Setiap Bidikan</h3>
@@ -213,7 +238,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab-3">
+                    <div class="tab-pane" id="tab-4">
                         <div class="row">
                             <div class="col-lg-6 order-lg-1 mt-lg-0 order-2 mt-3">
                                 <h3>Mengubah Moment yang Hadir Menjadi Karya Seni Bergerak</h3>
@@ -240,7 +265,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab-4">
+                    <div class="tab-pane" id="tab-5">
                         <div class="row">
                             <div class="col-lg-6 order-lg-1 mt-lg-0 order-2 mt-3">
                                 <h3>Mengubah Gagasan Anda menjadi Karya Nyata.</h3>
@@ -261,6 +286,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </section>

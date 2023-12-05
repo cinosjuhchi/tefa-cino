@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('designs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('design_plan_id')->constrained('design_plans')->cascadeOnDelete();
+            $table->foreignId('design_plan_id')->constrained('design_plans');
             $table->string('slogan')->nullable();
             $table->string('color');
             $table->timestamps();

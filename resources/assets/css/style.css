@@ -44,6 +44,15 @@ h6 {
     transition: all 0.4s;
 }
 
+.limited-lines {
+    max-height: calc(1.5em * 2); /* 2 baris * tinggi satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* jumlah maksimal baris */
+    -webkit-box-orient: vertical;
+  }
+
 .back-to-top i {
     font-size: 28px;
     color: #fff;
@@ -623,6 +632,8 @@ section {
     justify-content: center;
     object-fit: cover;
 }
+
+
 
 /*--------------------------------------------------------------
 # Features

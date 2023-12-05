@@ -2,10 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin\Contact;
-use App\Models\Title;
 use App\Models\User;
+use App\Models\Title;
+use App\Models\Admin\Contact;
 use Illuminate\Database\Seeder;
+use Database\Seeders\KelasSeeder;
+use Database\Seeders\DesignSeeder;
+use Database\Seeders\PortfolioSeeder;
+use Database\Seeders\PermissionSeeder;
+use Database\Seeders\PhotographySeeder;
+use Database\Seeders\VideographySeeder;
+use Database\Seeders\KelasCategorySeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -33,6 +41,9 @@ class DatabaseSeeder extends Seeder
             PhotographySeeder::class,
             VideographySeeder::class,
             PortfolioSeeder::class,
+            KelasSeeder::class,
+            KelasCategorySeeder::class,
+
         ]);
 
         Contact::create([
@@ -44,5 +55,6 @@ class DatabaseSeeder extends Seeder
         Title::create([
             'name' => 'Tefa Digital',
         ]);
+
     }
 }

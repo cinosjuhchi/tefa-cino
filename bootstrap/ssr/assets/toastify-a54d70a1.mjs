@@ -1,0 +1,14 @@
+import axios from "axios";
+import $ from "jquery";
+import Toastify from "toastify-js";
+import GLightbox from "glightbox";
+import Isotope from "isotope-layout";
+import AOS from "aos";
+window.axios = axios;
+window.AOS = AOS;
+window.Toastify = Toastify;
+window.GLightbox = GLightbox;
+window.Isotope = Isotope;
+window.jquery = window.jQuery = window.$ = $;
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+const toastify = "";

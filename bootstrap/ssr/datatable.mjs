@@ -1,0 +1,14 @@
+import JSZip from "jszip";
+import "pdfmake/build/pdfmake.js";
+import "pdfmake/build/vfs_fonts.js";
+import "datatables.net-bs5";
+import "datatables.net-autofill-bs5";
+import "datatables.net-buttons-bs5";
+import "datatables.net-buttons/js/buttons.colVis.mjs";
+import "datatables.net-buttons/js/buttons.html5.mjs";
+import "datatables.net-buttons/js/buttons.print.mjs";
+import "datatables.net-buttons/js/dataTables.buttons.mjs";
+import "datatables.net-responsive-bs5";
+import "datatables.net-staterestore-bs5";
+const datatables_min = "";
+window.JSZip = JSZip;

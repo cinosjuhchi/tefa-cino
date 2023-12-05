@@ -1,34 +1,37 @@
 <?php
 
+use App\Models\KelasCategory;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\DesignCategoryController;
-use App\Http\Controllers\Admin\DesignPlanController;
-use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\Admin\OrderListController;
-use App\Http\Controllers\Admin\PhotographyCategoryController;
-use App\Http\Controllers\Admin\PhotographyPlanController;
-use App\Http\Controllers\Admin\PortfolioController;
-use App\Http\Controllers\Admin\ProfileAppController;
-use App\Http\Controllers\Admin\VideographyCategoryController;
-use App\Http\Controllers\Admin\VideographyPlanController;
-use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\SendMailController;
+use App\Http\Controllers\ClassUserController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DesignFormController;
 use App\Http\Controllers\DesignUserController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\OrderClientController;
-use App\Http\Controllers\OrderClientSystemController;
-use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PrintingFormController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderListController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\PhotographyFormController;
 use App\Http\Controllers\PhotographyUserController;
-use App\Http\Controllers\PrintingFormController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\VideographyFormController;
 use App\Http\Controllers\VideographyUserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DesignPlanController;
+use App\Http\Controllers\Admin\ProfileAppController;
+use App\Http\Controllers\OrderClientSystemController;
+use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\admin\KelasCategoryController;
+use App\Http\Controllers\Admin\DesignCategoryController;
+use App\Http\Controllers\Admin\PhotographyPlanController;
+use App\Http\Controllers\Admin\VideographyPlanController;
+use App\Http\Controllers\Admin\PhotographyCategoryController;
+use App\Http\Controllers\Admin\VideographyCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +67,13 @@ Route::as('user.')->group(function () {
         Route::get('/foto-produk', [PhotographyUserController::class, 'produk'])->name('foto-produk');
         Route::get('/foto-pernikahan', [PhotographyUserController::class, 'pernikahan'])->name('foto-pernikahan');
         Route::get('/foto-acara', [PhotographyUserController::class, 'acara'])->name('foto-acara');
+    });
+
+    Route::prefix('uclass')->as('uclass.')->group(function () {
+        Route::get('/', [ClassUserController::class, 'index'])->name('index');
+        Route::get('/kategori-kelas', [ClassUserController::class, 'kategori'])->name('kategori-kelas');
+        Route::get('/daftar-kelas', [ClassUserController::class, 'kelas'])->name('all-kelas');
+        Route::get('/daftar-kelas/{kategori?}', [ClassUserController::class, 'daftar'])->name('daftar-kelas');
     });
 
     Route::prefix('videography')->as('videography.')->group(function () {
@@ -105,6 +115,8 @@ Route::as('user.')->group(function () {
 
         Route::get('/activity', [ActivityController::class, 'index'])->name('order.activity.index');
         Route::post('activity/read/{notifications?}', [ActivityController::class, 'read'])->name('order.activity.read');
+
+    
 
         Route::prefix('photography')->as('photography.')->group(function () {
             Route::get('/form', [PhotographyFormController::class, 'index'])->name('form.index');
@@ -165,4 +177,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::resource('videography-category', VideographyCategoryController::class)->except('create', 'store', 'show', 'destroy');
     Route::resource('videography-plan', VideographyPlanController::class)->except('show');
+
+    Route::resource('uclass-category', KelasCategoryController::class)->except('create', 'store', 'show', 'destroy');
+    Route::resource('uclass-plan', KelasCategoryController::class)->except('show');
 });
