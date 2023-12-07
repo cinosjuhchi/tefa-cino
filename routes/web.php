@@ -71,9 +71,10 @@ Route::as('user.')->group(function () {
 
     Route::prefix('uclass')->as('uclass.')->group(function () {
         Route::get('/', [ClassUserController::class, 'index'])->name('index');
+        // Route::get('/kelas/{id}', [ClassUserController::class, 'show'])->name('preview-kelas');
         Route::get('/kategori-kelas', [ClassUserController::class, 'kategori'])->name('kategori-kelas');
         Route::get('/daftar-kelas', [ClassUserController::class, 'kelas'])->name('all-kelas');
-        Route::get('/daftar-kelas/{kategori?}', [ClassUserController::class, 'daftar'])->name('daftar-kelas');
+        Route::get('/daftar-kelas/kategori/{kategori?}', [ClassUserController::class, 'daftar'])->name('daftar-kelas');
     });
 
     Route::prefix('videography')->as('videography.')->group(function () {
@@ -116,7 +117,7 @@ Route::as('user.')->group(function () {
         Route::get('/activity', [ActivityController::class, 'index'])->name('order.activity.index');
         Route::post('activity/read/{notifications?}', [ActivityController::class, 'read'])->name('order.activity.read');
 
-    
+        Route::get('/kelas/{id}', [ClassUserController::class, 'show'])->name('preview-kelas')->middleware('verify_pembelian_kelas');;
 
         Route::prefix('photography')->as('photography.')->group(function () {
             Route::get('/form', [PhotographyFormController::class, 'index'])->name('form.index');
@@ -141,6 +142,7 @@ Route::as('user.')->group(function () {
             Route::post('/form', [PrintingFormController::class, 'store'])->name('form.store');
             Route::get('/form-success/{nama}/{orderId}', [PrintingFormController::class, 'success'])->name('form.success');
         });
+        
     });
 });
 
@@ -157,6 +159,7 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
+    
 
     Route::get('list-order', [OrderListController::class, 'all'])->name('order.all');
     Route::patch('order/{order}/update', [OrderListController::class, 'update'])->name('order.update');
@@ -179,5 +182,5 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('videography-plan', VideographyPlanController::class)->except('show');
 
     Route::resource('uclass-category', KelasCategoryController::class)->except('create', 'store', 'show', 'destroy');
-    Route::resource('uclass-plan', KelasCategoryController::class)->except('show');
+    Route::get('uclass-plan', [KelasCategoryController::class, 'rumah'])->name('uclass.plan');
 });

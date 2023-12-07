@@ -1,0 +1,108 @@
+@extends('admin.dashboard.layouts.main')
+@section('content')
+<div class="container my-4">
+    <!-- d-flex nya abaikan saja -->
+    <div class="row headline mb-4">
+      <div class="d-flex justify-content-between">
+        <h1 class="fw-bold">Class List Admin</h1>
+
+        <div class="button">
+          <a href= "#" class="btn btn-warning fw-bold">Add Class</a>
+        </div>
+      </div>
+      <hr class="border-4 rounded border-warning opacity-100" />
+    </div>
+    <div class="wrap mb-5">
+        <div class="title">
+          <p class="m-0">Category</p>
+          <h1 class="fw-bold">Rekayasa Perangkat Lunak</h1>
+        </div>       
+        <div class="row cards mt-5">
+            @foreach($rpl as $kate)
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card border-0 shadow h-100" style="width: max-width">
+                <img src="{{ Vite::asset('resources/assets/img/uclass/accountimage.png') }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
+                <div class="card-body">
+                  <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
+                  <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ $kate->harga }}</p>
+                  <p class="card-text limited-lines-2">
+                    {{ $kate->deskripsi }}
+                  </p>
+                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                </div>
+              </div>
+            </div>        
+            @endforeach
+          </div>
+    </div>
+    <div class="wrap mb-5">
+        <div class="title">
+          <p class="m-0">Category</p>
+          <h1 class="fw-bold">Akuntasi Keuangan Lembaga</h1>
+        </div>       
+        <div class="row cards mt-5">
+            @foreach($akl as $kate)
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card border-0 shadow h-100" style="width: max-width">
+                <img src="{{ Vite::asset('resources/assets/img/uclass/accountimage.png') }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
+                <div class="card-body">
+                  <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
+                  <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ $kate->harga }}</p>
+                  <p class="card-text limited-lines-2">
+                    {{ $kate->deskripsi }}
+                  </p>
+                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                </div>
+              </div>
+            </div>        
+            @endforeach
+          </div>
+    </div>
+    <div class="wrap mb-5">
+        <div class="title">
+          <p class="m-0">Bisnis Daring Pemasaran</p>
+          <h1 class="fw-bold">Akuntasi Keuangan Lembaga</h1>        
+        </div>       
+        <div class="row cards mt-5">
+            @foreach($bdp as $kate)
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card border-0 shadow h-100" style="width: max-width">
+                <img src="{{ Vite::asset('resources/assets/img/uclass/accountimage.png') }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
+                <div class="card-body">
+                  <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
+                  <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ $kate->harga }}</p>
+                  <p class="card-text limited-lines-2">
+                    {{ $kate->deskripsi }}
+                  </p>
+                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                </div>
+              </div>
+            </div>        
+            @endforeach
+          </div>
+    </div>
+    <div class="wrap mb-5">
+        <div class="title">
+          <p class="m-0">Category</p>
+          <h1 class="fw-bold">Otomatisasi dan Tata Kelola Perkantoran</h1>
+        </div>       
+        <div class="row cards mt-5">
+            @foreach($otkp as $kate)
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card border-0 shadow h-100" style="width: max-width">
+                <img src="{{ Vite::asset('resources/assets/img/uclass/accountimage.png') }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
+                <div class="card-body">
+                  <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
+                  <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ $kate->harga }}</p>
+                  <p class="card-text limited-lines-2">
+                    {{ $kate->deskripsi }}
+                  </p>
+                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                </div>
+              </div>
+            </div>        
+            @endforeach
+          </div>
+    </div>
+  </div>
+@endsection

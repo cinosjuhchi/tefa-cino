@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Kelas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class KelasCategory extends Model
 {
@@ -16,7 +17,9 @@ class KelasCategory extends Model
         'image',
     ];
 
-    public function kelas() {
+    // KelasCategory.php (model)
+    public function kelas():HasMany {
         return $this->hasMany(Kelas::class);
     }
+
 }

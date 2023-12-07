@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Admin\Order;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -51,5 +52,12 @@ class User extends Authenticatable
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class, 'user_id');
+    }
+    public function pembelianKelas(): HasMany {
+        return $this->hasMany(PembelianKelas::class, 'user_id');
+    }
+
+    public function kelasDibeli(): BelongsToMany {
+        return $this->belongsToMany(Kelas::class, 'pembelian_kelas', 'user_id', 'kelas_id');
     }
 }

@@ -44,14 +44,6 @@ h6 {
     transition: all 0.4s;
 }
 
-.limited-lines {
-    max-height: calc(1.5em * 2); /* 2 baris * tinggi satu baris */
-    overflow: hidden;
-    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* jumlah maksimal baris */
-    -webkit-box-orient: vertical;
-  }
 
 .back-to-top i {
     font-size: 28px;
@@ -63,6 +55,41 @@ h6 {
     background: #fc7c1f;
     color: #fff;
 }
+
+/* dev cino */
+.limited-lines {
+    max-height: calc(2em * 2); /* 2 baris * tinggi satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* jumlah maksimal baris */
+    -webkit-box-orient: vertical;
+  }
+
+  .content {
+    margin-top: 40px;
+}
+
+.scrolly {
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.scrolly::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrolly::-webkit-scrollbar-thumb,
+.scrolly::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+.scrolly::-webkit-scrollbar-thumb {
+  background: #ffc107;
+}
+.scrolly::-webkit-scrollbar-track {
+  background: #dee2e6;
+}
+
 
 /*--------------------------------------------------------------
 # Disable AOS delay on mobile

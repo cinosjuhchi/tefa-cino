@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use App\Models\KelasCategory;
+use App\Models\PembelianKelas;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kelas extends Model
@@ -13,6 +16,7 @@ class Kelas extends Model
 
     protected $fillable = [
         'nama',
+        'link_vid',
         'deskripsi',
         'harga',
         'gambar',
@@ -20,7 +24,11 @@ class Kelas extends Model
         'category_id',
     ];
 
-    public function category() {
+    public function category(): BelongsTo {
         return $this->belongsTo(KelasCategory::class);
+    }
+
+    public function pembelianKelas(): HasMany {
+        return $this->hasMany(PembelianKelas::class, 'kelas_id');
     }
 }

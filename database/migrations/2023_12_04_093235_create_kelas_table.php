@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->string('nama');
+            $table->string('link_vid')->default('https://www.youtube.com/embed/v-U7UJ4iKZ8?si=u9gpwl4Vw-F05tF-');
             $table->text('deskripsi');
             $table->decimal('harga', 10, 2); // Harga kelas
             $table->string('gambar')->default('accountimage.png');

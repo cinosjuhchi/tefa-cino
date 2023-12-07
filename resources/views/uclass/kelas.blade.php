@@ -31,7 +31,7 @@
                     <p class="card-text limited-lines">
                         {{ $kelas->deskripsi }}
                     </p>
-                    <a href="#" class="btn btn-warning fw-bold">Rp{{ $kelas->harga }}</a>
+                    <a href="{{ route('user.preview-kelas', ['id' => $kelas->id]) }}" class="btn btn-warning fw-bold">Rp{{ $kelas->harga }}</a>
                   </div>
                 </div>
               </div>

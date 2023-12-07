@@ -174,7 +174,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-6 order-lg-2 order-1 text-center">
-                                <img src="{{ asset('assets/img/print.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/img/kelas-kartun.jpg') }}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>

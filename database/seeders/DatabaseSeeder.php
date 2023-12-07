@@ -13,6 +13,7 @@ use Database\Seeders\PermissionSeeder;
 use Database\Seeders\PhotographySeeder;
 use Database\Seeders\VideographySeeder;
 use Database\Seeders\KelasCategorySeeder;
+use Database\Seeders\PembelianKelasSeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -43,7 +44,7 @@ class DatabaseSeeder extends Seeder
             PortfolioSeeder::class,
             KelasSeeder::class,
             KelasCategorySeeder::class,
-
+            PembelianKelasSeeder::class,
         ]);
 
         Contact::create([

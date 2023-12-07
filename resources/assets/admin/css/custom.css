@@ -1,3 +1,83 @@
+/* dev cino tefa */
+
+.limited-lines {
+    max-height: calc(1.5em * 2); /* 2 baris * tinggi satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* jumlah maksimal baris */
+    -webkit-box-orient: vertical;
+  }
+
+  .card:hover {
+    margin-top: -10px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .limited-lines-2 {
+    max-height: calc(1.5em * 2); /* 2 baris * tinggi satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* jumlah maksimal baris */
+    -webkit-box-orient: vertical;
+  }
+  
+  .limited-lines-1 {
+    max-height: calc(2em * 2); /* 2 baris * tinggi satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* jumlah maksimal baris */
+    -webkit-box-orient: vertical;
+  }
+  
+  .card:hover {
+    margin-top: -10px;
+    transition: 0.3s;
+  }
+  
+  .limited-lines-2 {
+    max-height: calc(1.5em * 2); /* 2 baris * tinggi satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* jumlah maksimal baris */
+    -webkit-box-orient: vertical;
+  }
+  
+  .limited-lines-1 {
+    max-height: calc(2em * 2); /* 2 baris * tinggi satu baris */
+    overflow: hidden;
+    text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* jumlah maksimal baris */
+    -webkit-box-orient: vertical;
+  }
+  
+  .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding-top: 10px;
+  }
+  
+  .cards::-webkit-scrollbar {
+    height: 12px;
+    width: max-content;
+  }
+  .cards::-webkit-scrollbar-thumb,
+  .cards::-webkit-scrollbar-track {
+    border-radius: 92px;
+  }
+  .cards::-webkit-scrollbar-thumb {
+    background: #ffc107;
+  }
+  .cards::-webkit-scrollbar-track {
+    background: #dee2e6;
+  }
+  /* end dev cino */
+
 .navstabs {
     color: #3c4b64ac !important;
     border-radius: 0 !important;
@@ -20,6 +100,7 @@
 .word-break {
     overflow-wrap: break-word;
 }
+
 
 .category-text-container {
     width: 100%;
