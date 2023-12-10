@@ -18,9 +18,10 @@ class KelasCategoryFactory extends Factory
     protected $model = KelasCategory::class;
     public function definition(): array
     {
-        $kategori = $this->faker->randomElement(['RPL', 'AKL', 'BDP', 'OTKP']);
+        static $index = 0;
+        $kategori = ['RPL', 'AKL', 'BDP', 'OTKP'];
         return [
-            "title" => $kategori,
+            "title" => $kategori[$index++],
             "body" => $this->faker->paragraph(3),
         ];
     }

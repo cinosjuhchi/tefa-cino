@@ -24,14 +24,18 @@
             @foreach ($all as $kelas)
               <div class="col-md-4 mb-4">
                 <div class="card border-0 shadow h-100" style="width: max-width">
-                  <img src="{{ Vite::asset('resources/assets/img/uclass/' . $kelas->gambar) }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
+                  <img src="{{ asset('assets/img/' . $kelas->gambar) }} }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
                   <div class="card-body">
                     <h5 class="card-title fw-bold">{{ $kelas->nama }}</h5>
                     <p class="card-text mt-0 text-secondary">Online Class</p>
                     <p class="card-text limited-lines">
                         {{ $kelas->deskripsi }}
                     </p>
-                    <a href="{{ route('user.preview-kelas', ['id' => $kelas->id]) }}" class="btn btn-warning fw-bold">Rp{{ $kelas->harga }}</a>
+                    @if (Auth::user()->pembelianKelas()->where('kelas_inti_id', $kelas->id)->exists())
+                    <a href="{{ route('user.preview-kelas', ['id' => $kelas->id]) }}" class="btn btn-warning fw-bold">Buka Kelas</a>    
+                    @else
+                    <a href="{{ route('user.uclass.form.index', ['id' => $kelas->id]) }}" class="btn btn-warning fw-bold">Rp. {{ number_format($kelas->harga, 0, ',', '.') }}</a>
+                    @endif
                   </div>
                 </div>
               </div>

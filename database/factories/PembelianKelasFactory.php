@@ -22,12 +22,12 @@ class PembelianKelasFactory extends Factory
         $kelasId = $this->faker->unique()->numberBetween(1, 30); // Mengubah rentang id kelas menjadi 1-30 dengan nilai unik
     
         // Logika untuk memastikan user_id tidak sama dengan kelas_id
-        while (PembelianKelas::where('user_id', $userId)->where('kelas_id', $kelasId)->exists()) {
+        while (PembelianKelas::where('user_id', $userId)->where('kelas_inti_id', $kelasId)->exists()) {
             $kelasId = $this->faker->unique()->numberBetween(1, 30);
         }
         return [
         'user_id' => $userId,
-        'kelas_id' => $kelasId,
+        'kelas_inti_id' => $kelasId,
         'tanggal_pembelian' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }

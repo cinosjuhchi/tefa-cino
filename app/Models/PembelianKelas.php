@@ -13,7 +13,7 @@ class PembelianKelas extends Model
 
     protected $fillable = [
         'user_id',
-        'kelas_id',
+        'kelas_inti_id',
         'tanggal_pembelian'
     ];
 

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Admin\Order;
-use App\Notifications\OrderNotification;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\BuyClass;
 use Illuminate\View\View;
+use App\Models\Admin\Order;
+use Illuminate\Http\Request;
+use App\Models\PembelianKelas;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use App\Notifications\OrderNotification;
 
 class OrderListController extends Controller
 {
@@ -63,4 +66,38 @@ class OrderListController extends Controller
 
         return back()->with('success', "You're successfully updated status a order");
     }
+
+    public function kelas(Request $request) {
+        $search = $request->input('search');
+    
+        // Jika ada input pencarian, ambil data sesuai pencarian.
+        if ($search) {
+            $orderan = BuyClass::with('kelas.category')
+                        ->where('no_pesan', 'like', '%' . $search . '%')
+                        ->get();
+        } else {
+            // Jika tidak ada input pencarian, ambil semua data.
+            $orderan = BuyClass::with('kelas.category')->get();
+        }
+        
+        return view('admin.order.kelas', [
+            'order' => $orderan,
+        ]);
+    }
+    public function updatestat($nop) {
+        $buyClass = BuyClass::where('no_pesan', $nop)->first();
+        if ($buyClass) {
+            $buyClass->update(['status' => 'completed']);
+
+            $pembelian = new PembelianKelas();
+            $pembelian->user_id = $buyClass->user_id;
+            $pembelian->kelas_inti_id = $buyClass->kelas_id;
+            $pembelian->tanggal_pembelian = Carbon::now();
+            $pembelian->save();
+        }
+
+        return redirect()->route('order.kelas');
+    }
+    
+    
 }

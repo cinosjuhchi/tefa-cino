@@ -58,6 +58,10 @@ class User extends Authenticatable
     }
 
     public function kelasDibeli(): BelongsToMany {
-        return $this->belongsToMany(Kelas::class, 'pembelian_kelas', 'user_id', 'kelas_id');
+        return $this->belongsToMany(KelasInti::class, 'pembelian_kelas', 'user_id', 'kelas_inti_id');
+    }
+
+    public function buyClass(): HasMany {
+        return $this->hasMany(BuyClass::class, 'user_id');
     }
 }

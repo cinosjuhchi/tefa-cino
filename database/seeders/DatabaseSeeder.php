@@ -8,6 +8,7 @@ use App\Models\Admin\Contact;
 use Illuminate\Database\Seeder;
 use Database\Seeders\KelasSeeder;
 use Database\Seeders\DesignSeeder;
+use Database\Seeders\KelasIntiSeeder;
 use Database\Seeders\PortfolioSeeder;
 use Database\Seeders\PermissionSeeder;
 use Database\Seeders\PhotographySeeder;
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             KelasSeeder::class,
             KelasCategorySeeder::class,
             PembelianKelasSeeder::class,
+            KelasIntiSeeder::class,
         ]);
 
         Contact::create([

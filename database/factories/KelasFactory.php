@@ -23,9 +23,9 @@ class KelasFactory extends Factory
         $kategori = $this->faker->randomElement([1,2,3,4]);
 
         return [
+            'kelas_inti_id' => $this->faker->numberBetween(1, 30),
             'nama' => $namaKelas,
-            'deskripsi' => $this->faker->paragraph(3),
-            'harga' => $this->faker->randomFloat(2, 100, 1000),
+            'deskripsi' => $this->faker->paragraph(3),            
             'status' => $this->faker->boolean(),
             'category_id' => $kategori,
         ];

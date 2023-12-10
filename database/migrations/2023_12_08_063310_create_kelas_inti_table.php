@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kelas', function (Blueprint $table) {
+        Schema::create('kelas_inti', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kelas_inti_id');
-            $table->foreignId('category_id');
             $table->string('nama');
-            $table->string('link_vid')->default('https://www.youtube.com/embed/v-U7UJ4iKZ8?si=u9gpwl4Vw-F05tF-');
-            $table->text('deskripsi');            
+            $table->string('kategori_id');
+            $table->text('deskripsi');
+            $table->integer('harga');
             $table->string('gambar')->default('placeholder.jpg');
-            $table->boolean('status')->default(true); // Status kelas (aktif/tidak aktif)
+            // ... tambahkan kolom lain yang diperlukan
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kelas');
+        Schema::dropIfExists('kelas_inti');
     }
 };

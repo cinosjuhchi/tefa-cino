@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\KelasInti;
 use Illuminate\Http\Request;
 use App\Models\KelasCategory;
 use App\Http\Controllers\Controller;
@@ -11,15 +12,22 @@ use Illuminate\Support\Facades\Auth;
 class ClassUserController extends Controller
 {
     public function index() {
-        return view('uclass.index', [
-            'category' => KelasCategory::all()
+        if(!Auth::check()) {
+            return view('uclass.index', [
+                'category' => KelasCategory::all(),               
+            ]);
+        }else{                        
+            return view('uclass.index', [
+            'category' => KelasCategory::all(),            
         ]);
+        }
+        
     }
 
     public function daftar(Request $request, $kategori = null)
 {
     if ($kategori) {
-        $kelas = Kelas::where('category_id', $kategori)->get();
+        $kelas = KelasInti::where('kategori_id', $kategori)->get();
         $category = KelasCategory::where('id', $kategori)->get();                         
     }
 
@@ -34,18 +42,48 @@ class ClassUserController extends Controller
     }
 
     public function kelas() {
-        $all = Kelas::all();
+        $all = KelasInti::all();
         return view('uclass.kelas', compact('all'));
     }
 
-    public function show($id) {
-        $user = Auth::user();
-        $slug = $id;
-        $kelas = Kelas::findOrFail($slug);
-        $hasClass = $user->kelasDibeli()->get();
-        return view('uclass.show', [
-            'kelas' => $kelas,
-            'hasclass' => $hasClass,
+    public function show($id) { 
+        $user = Auth::user();        
+        $kelasInti = KelasInti::findOrFail($id);  
+        $kelasPertama = $kelasInti->kelas()->first();              
+        $kelasRancak = $kelasInti->kelas()->get();
+        $total = $kelasRancak->count();
+        return view('uclass.preview-kelas', [
+            'kelas' => $kelasInti,
+            'kelasDetail' => $kelasRancak,
+            'userdua' => $user,
+            'total' => $total,
+            'kelasPertama' => $kelasPertama,
         ]);
     }
+
+    public function video($id) {
+        if(!Auth::check()) {
+            return redirect()->route('uclass.index');
+        }        
+        $materi = Kelas::findOrFail($id);
+        $idInti = $materi->kelas_inti_id;
+        $kelas = KelasInti::findOrFail($idInti)->kelas()->get();
+        $total = $kelas->count();
+        $index = 0;
+        return view('uclass.show', [            
+            'materi' => $materi,
+            'kelas' => $kelas,
+            'total' => $total,
+            'index' => $index,
+        ]);
+    }
+
+    public function hasClass() {
+        $user = Auth::user();
+        $hasClass = $user->kelasDibeli()->get();
+        return view('uclass.kelas-user', [
+            'hasClass' => $hasClass
+        ]);
+    }
+
 }

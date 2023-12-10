@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use App\Models\Kelas;
+use App\Models\KelasInti;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class KelasCategory extends Model
 {
@@ -21,5 +22,10 @@ class KelasCategory extends Model
     public function kelas():HasMany {
         return $this->hasMany(Kelas::class);
     }
+    public function kelasInti():HasMany {
+        return $this->hasMany(KelasInti::class);
+    }
+
+    
 
 }

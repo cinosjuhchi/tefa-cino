@@ -90,6 +90,33 @@ h6 {
   background: #dee2e6;
 }
 
+.warning {
+  background-color: blue;
+}
+
+.active-show {
+  background-color: #ffc107;
+  
+}
+
+.limited-lines-2 {
+  max-height: calc(1.5em * 2); /* 2 baris * tinggi satu baris */
+  overflow: hidden;
+  text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* jumlah maksimal baris */
+  -webkit-box-orient: vertical;
+}
+
+.limited-lines-1 {
+  max-height: calc(2em * 2); /* 2 baris * tinggi satu baris */
+  overflow: hidden;
+  text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* jumlah maksimal baris */
+  -webkit-box-orient: vertical;
+}
+
 
 /*--------------------------------------------------------------
 # Disable AOS delay on mobile
@@ -268,7 +295,7 @@ h6 {
     transition: 0.5s;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .mobile-nav-toggle {
         display: block;
     }
@@ -276,6 +303,11 @@ h6 {
     .navbar ul {
         display: none;
     }
+
+    .content-dev {
+        margin-top: 30rem;
+      }
+   
 }
 
 .navbar-mobile {

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\ClassUserController;
+use App\Http\Controllers\KelasFormController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DesignFormController;
 use App\Http\Controllers\DesignUserController;
@@ -117,7 +118,15 @@ Route::as('user.')->group(function () {
         Route::get('/activity', [ActivityController::class, 'index'])->name('order.activity.index');
         Route::post('activity/read/{notifications?}', [ActivityController::class, 'read'])->name('order.activity.read');
 
-        Route::get('/kelas/{id}', [ClassUserController::class, 'show'])->name('preview-kelas')->middleware('verify_pembelian_kelas');;
+        Route::get('/kelas/{id}', [ClassUserController::class, 'show'])->name('preview-kelas');
+        Route::get('/kelas/show/{id}', [ClassUserController::class, 'video'])->name('video.kelas')->middleware('verify_pembelian_kelas');
+
+        Route::prefix('uclass')->as('uclass.')->group(function () {
+            Route::get('/form/{id}', [KelasFormController::class, 'index'])->name('form.index');
+            Route::post('/form', [KelasFormController::class, 'store'])->name('form.store');
+            Route::get('/form-success/{nama}/{kelas}/{noPesan}', [KelasFormController::class, 'success'])->name('form.success');
+            Route::get('/kelas/kelas-saya', [ClassUserController::class, 'hasClass'])->name('kelas.saya');
+        });
 
         Route::prefix('photography')->as('photography.')->group(function () {
             Route::get('/form', [PhotographyFormController::class, 'index'])->name('form.index');
@@ -166,6 +175,8 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('detail/{order}', [OrderListController::class, 'show'])->name('order.show');
     Route::get('/notification', [NotificationController::class, 'index'])->name('order.notification.index');
     Route::post('notification/read/{notifications?}', [NotificationController::class, 'read'])->name('order.notification.read');
+    Route::get('list-order-kelas', [OrderListController::class, 'kelas'])->name('order.kelas');    
+    Route::get('list-order-kelas/{nop}', [OrderListController::class, 'updatestat'])->name('order.update.kelas');        
 
     Route::resource('portfolio', PortfolioController::class)->except('show');
     Route::get('profile-app', [ProfileAppController::class, 'index'])->name('profile-app.index');
@@ -183,4 +194,6 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::resource('uclass-category', KelasCategoryController::class)->except('create', 'store', 'show', 'destroy');
     Route::get('uclass-plan', [KelasCategoryController::class, 'rumah'])->name('uclass.plan');
+    Route::get('form-class', [KelasCategoryController::class, 'formClass'])->name('uclass.form.class');
+    Route::post('form-class/store', [KelasCategoryController::class, 'addClass'])->name('uclass.form.store');
 });

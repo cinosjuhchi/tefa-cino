@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PhotographyRequest;
 use App\Models\Admin\Photography;
 use App\Models\Admin\PhotographyCategory;
-use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
