@@ -1,0 +1,46 @@
+.content {
+    margin-top: 40px;
+}
+
+.scrolly {
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.scrolly::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrolly::-webkit-scrollbar-thumb,
+.scrolly::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+.scrolly::-webkit-scrollbar-thumb {
+  background: #ef6603;
+}
+.scrolly::-webkit-scrollbar-track {
+  background: #dee2e6;
+}
+
+.active {
+  background-color: #ef6603;
+  
+}
+
+.limited-lines-2 {
+  max-height: calc(1.5em * 2); /* 2 baris * tinggi satu baris */
+  overflow: hidden;
+  text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* jumlah maksimal baris */
+  -webkit-box-orient: vertical;
+}
+
+.limited-lines-1 {
+  max-height: calc(2em * 2); /* 2 baris * tinggi satu baris */
+  overflow: hidden;
+  text-overflow: ellipsis; /* menampilkan titik-titik elipsis jika terpotong */
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* jumlah maksimal baris */
+  -webkit-box-orient: vertical;
+}

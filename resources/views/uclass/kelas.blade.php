@@ -6,8 +6,8 @@
     @include('layouts.carousel-category', [
         'title' => 'Kelas Berbayar',
         'description' => 'Belajar lebih cepat dengan kami!',
-        'buttonUrl' => '#about',
-        'buttonText' => 'Selengkapnya',
+        'buttonUrl' => "/uclass/daftar-kelas",
+        'buttonText' => 'All Class',
     ])
 @endsection
 
@@ -24,7 +24,7 @@
             @foreach ($all as $kelas)
               <div class="col-md-4 mb-4">
                 <div class="card border-0 shadow h-100" style="width: max-width">
-                  <img src="{{ asset('assets/img/' . $kelas->gambar) }} }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
+                  <img src="{{ asset('assets/img/' . $kelas->gambar) }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
                   <div class="card-body">
                     <h5 class="card-title fw-bold">{{ $kelas->nama }}</h5>
                     <p class="card-text mt-0 text-secondary">Online Class</p>

@@ -1,5 +1,10 @@
 @extends('admin.dashboard.layouts.main')
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <div class="container my-4">
     <!-- d-flex nya abaikan saja -->
     <div class="row headline mb-4">
@@ -7,7 +12,7 @@
         <h1 class="fw-bold">Class List Admin</h1>
 
         <div class="button">
-          <a href= "{{ route('uclass.form.class') }}" class="btn btn-warning fw-bold">Add Class</a>
+          <a href= "{{ route('uclass.form.class') }}" class="btn btn-warning fw-bold me-2">Add Class</a>
         </div>
       </div>
       <hr class="border-4 rounded border-warning opacity-100" />
@@ -25,10 +30,14 @@
                 <div class="card-body">
                   <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
                   <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ number_format($kate->harga, 0, ',', '.') }}</p>
-                  <p class="card-text limited-lines-2">
-                    {{ $kate->deskripsi }}
-                  </p>
-                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                    <p class="card-text limited-lines-2">
+                      {!! $kate->deskripsi !!}
+                    </p>
+                  <div class="d-flex">
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Tambah Materi</a>
+                      <a href="{{ route('uclass.form.update.index', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Kelas</a>
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Materi</a>
+                    </div>  
                 </div>
               </div>
             </div>        
@@ -48,10 +57,14 @@
                 <div class="card-body">
                   <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
                   <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ number_format($kate->harga, 0, ',', '.') }}</p>
-                  <p class="card-text limited-lines-2">
-                    {{ $kate->deskripsi }}
-                  </p>
-                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                    <p class="card-text limited-lines-2">
+                      {!! $kate->deskripsi !!}
+                    </p>
+                    <div class="d-flex">
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Tambah Materi</a>
+                      <a href="{{ route('uclass.form.update.index', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Kelas</a>
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Materi</a>
+                    </div>  
                 </div>
               </div>
             </div>        
@@ -71,10 +84,14 @@
                 <div class="card-body">
                   <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
                   <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ number_format($kate->harga, 0, ',', '.') }}</p>
-                  <p class="card-text limited-lines-2">
-                    {{ $kate->deskripsi }}
-                  </p>
-                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                    <p class="card-text limited-lines-2">
+                      {!! $kate->deskripsi !!}
+                    </p>
+                  <div class="d-flex">
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Tambah Materi</a>
+                      <a href="{{ route('uclass.form.update.index', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Kelas</a>
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Materi</a>
+                    </div>  
                 </div>
               </div>
             </div>        
@@ -94,10 +111,14 @@
                 <div class="card-body">
                   <h5 class="card-title fw-bold limited-lines-1">{{ $kate->nama }}</h5>
                   <p class="card-text mt-0 text-warning fs-5 fw-bold">Rp.{{ number_format($kate->harga, 0, ',', '.') }}</p>
-                  <p class="card-text limited-lines-2">
-                    {{ $kate->deskripsi }}
-                  </p>
-                  <a href="#" class="btn btn-warning fw-bold">Edit Kelas</a>
+                    <p class="card-text limited-lines-2">
+                      {!! $kate->deskripsi !!}
+                    </p>
+                  <div class="d-flex">
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Tambah Materi</a>
+                      <a href="{{ route('uclass.form.update.index', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Kelas</a>
+                      <a href="{{ route('uclass.form.kelas', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold me-2">Edit Materi</a>
+                    </div>  
                 </div>
               </div>
             </div>        

@@ -48,13 +48,16 @@
                         <div>
                             <a href="{{ route('user.printing.index') }}">Printing</a>
                         </div>
+                        <div>
+                            <a href="{{ route('user.uclass.index') }}">Class</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <h4 class="position-relative fs-3 p-0" style="margin: 0 0 20px 0;">Sub-Categories</h4>
                     <div class="footer-links">
                         <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-4 mb-4">
                                 <span>Design</span>
                                 <hr style="width: 30%">
                                 <div class="d-flex flex-column">
@@ -62,8 +65,8 @@
                                     <a href="{{ route('user.design.design-logo') }}">Logo</a>
                                     <a href="{{ route('user.design.design-promosi') }}">Promotion</a>
                                 </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
+                            </div>                            
+                            <div class="col-md-4 mb-4">
                                 <span>Photography</span>
                                 <hr style="width: 30%">
                                 <div class="d-flex flex-column">
@@ -72,7 +75,7 @@
                                     <a href="{{ route('user.photography.foto-produk') }}">Product</a>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-4 mb-4">
                                 <span>Videography</span>
                                 <hr style="width: 30%">
                                 <div class="d-flex flex-column">
@@ -80,10 +83,20 @@
                                     <a href="{{ route('user.videography.vid-syuting') }}">Shooting</a>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-4 mb-4">
                                 <span>Printing</span>
                                 <hr style="width: 30%">
                                 <a href="{{ route('user.printing.index') }}">3D</a>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <span>Class</span>
+                                <hr style="width: 30%">
+                                <div class="d-flex flex-column">
+                                    <a href="{{ route('user.uclass.kategori-kelas', ['kategori' => 1]) }}">RPL</a>
+                                    <a href="{{ route('user.uclass.kategori-kelas', ['kategori' => 2]) }}">AKL</a>
+                                    <a href="{{ route('user.uclass.kategori-kelas', ['kategori' => 3]) }}">BDP</a>
+                                    <a href="{{ route('user.uclass.kategori-kelas', ['kategori' => 4]) }}">OTKP</a>
+                                </div>
                             </div>
                         </div>
                     </div>

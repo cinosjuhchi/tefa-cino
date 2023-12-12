@@ -50,7 +50,7 @@
                 </div>
                 <div class="row gap-1">
                   @foreach($category as $ct)
-                    <div class="col-lg">
+                    <div class="col-lg" data-aos="zoom-in-left" data-aos-delay="100">
                       <div class="card border-0 shadow h-100" style="width: max-width">
                         <img src="{{ Vite::asset('resources/assets/img/uclass/accountimage.png') }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px;"/>
                         <div class="card-body">

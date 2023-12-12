@@ -6,8 +6,8 @@
     @include('layouts.carousel-category', [
         'title' => 'Kelas Saya',
         'description' => 'Selamat belajar!',
-        'buttonUrl' => '#about',
-        'buttonText' => 'Selengkapnya',
+        'buttonUrl' => "/uclass/daftar-kelas",
+        'buttonText' => 'All Class',
     ])
 @endsection
 
@@ -16,13 +16,13 @@
         <div class="container my-4">
             <div class="row headline mb-4">            
                 <h1 class="fw-bold">Kelas Saya</h1>        
-                <hr class="border-4 rounded border-warning opacity-100" />
+                <hr class="border-4 rounded text-warning opacity-100" />
             </div>
             <div class="row" id="about">
                 @foreach ($hasClass as $kelas)
                 <div class="col-md-4 mb-4">
                     <div class="card border-0 shadow h-100" style="width: max-width">
-                    <img src="{{ Vite::asset('resources/assets/img/uclass/' . $kelas->gambar) }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
+                    <img src="{{ asset('assets/img/' . $kelas->gambar ) }}" class="card-img-top" alt="..." style="object-fit: cover; width: 100%; height: 230px" />
                     <div class="card-body">
                         <h5 class="card-title fw-bold">{{ $kelas->nama }}</h5>
                         <p class="card-text mt-0 text-secondary">Online Class</p>

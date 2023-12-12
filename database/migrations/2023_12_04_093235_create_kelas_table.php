@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('kelas_inti_id');
             $table->foreignId('category_id');
             $table->string('nama');
-            $table->string('link_vid')->default('https://www.youtube.com/embed/v-U7UJ4iKZ8?si=u9gpwl4Vw-F05tF-');
+            $table->text('link_vid');
             $table->text('deskripsi');            
             $table->string('gambar')->default('placeholder.jpg');
             $table->boolean('status')->default(true); // Status kelas (aktif/tidak aktif)

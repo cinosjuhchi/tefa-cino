@@ -10,8 +10,8 @@ $kelasInti = $user->buyClass()->get();
                 <li><a href="{{ route('user.profile.index') }}">{{ auth()->user()->email }}</a></li>
                 <li><a href="{{ route('user.order.list') }}">List Order</a></li>
                 <li><a href="{{ route('user.order.activity.index') }}">Order Progress History</a></li>
-                <li><a href="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">Status Kelas</a></li>
-                <li><a href="{{ route('user.uclass.kelas.saya') }}">Kelas Saya</a></li>
+                <li><a href="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">Class Status</a></li>
+                <li><a href="{{ route('user.uclass.kelas.saya') }}">My Class</a></li>
             @else
                 <li><a href="{{ route('dashboard') }}">{{ auth()->user()->email }}</a></li>
             @endrole
@@ -49,10 +49,14 @@ $kelasInti = $user->buyClass()->get();
         <div class="row align-items-center status">
             <div class="col-6">
             <h5>{{ $kelasu->kelas->nama }}</h5>
-            <p>Rp. {{ $kelasu->total }}</p>
+            <p>Rp. {{ number_format($kelasu->total, 0, ',', '.') }}</p>
             </div>
             <div class="col-6 text-end">
+            @if ($kelasu->status == 'pending')
             <p class="text-primary"><i class="bi bi-clock me-1"></i>{{ $kelasu->status }}</p>
+            @else
+            <p class="text-primary"><i class="bi bi-check-circle me-1"></i>{{ $kelasu->status }}</p>
+            @endif
             </div>
         </div>      
         @endforeach

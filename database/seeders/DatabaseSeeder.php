@@ -43,10 +43,11 @@ class DatabaseSeeder extends Seeder
             PhotographySeeder::class,
             VideographySeeder::class,
             PortfolioSeeder::class,
-            KelasSeeder::class,
+            // KelasSeeder::class,
             KelasCategorySeeder::class,
-            PembelianKelasSeeder::class,
-            KelasIntiSeeder::class,
+            
+            // PembelianKelasSeeder::class,
+            // KelasIntiSeeder::class,
         ]);
 
         Contact::create([
