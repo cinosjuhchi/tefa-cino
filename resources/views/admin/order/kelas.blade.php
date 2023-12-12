@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-between">      
       <form class="d-flex" role="search" method="GET" action="{{ route('order.kelas') }}">
         <input class="form-control me-2" name="search" id="searchInput" type="text" placeholder="Cari no pesan" aria-label="Search">        
-        <a href="{{ route('order.kelas') }}" class="btn btn-warning">Refresh</a>
+        <a href="{{ route('order.kelas') }}" class="btn btn-warning">Refreshi</a>
       </form>
     </div>
       <hr class="text-warning opacity-100 border-4 rounded" />
