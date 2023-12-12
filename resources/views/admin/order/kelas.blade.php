@@ -3,8 +3,7 @@
 <div class="container my-4">
     <div class="headline">
       <h1>List Order</h1>
-      <div class="d-flex justify-content-between">
-      <div class="btn btn-warning">KONSOL</div>
+      <div class="d-flex justify-content-between">      
       <form class="d-flex" role="search" method="GET" action="{{ route('order.kelas') }}">
         <input class="form-control me-2" name="search" id="searchInput" type="text" placeholder="Cari no pesan" aria-label="Search">        
         <a href="{{ route('order.kelas') }}" class="btn btn-warning">Refresh</a>

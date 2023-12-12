@@ -30,15 +30,16 @@
         <div class="col-lg col-md-12">
           <div class="cover px-4 py-4 rounded-3">
             <div class="headline mb-3">
-              <h1 class="fw-bold">Add Class</h1>
+              <h1 class="fw-bold">Update Class</h1>
               <hr class="text-warning opacity-100 border-4 rounded" />
             </div>
-            
-            <form action="{{ route('uclass.form.store') }}" enctype="multipart/form-data" method="POST">
+
+            <form action="{{ route('uclass.form.kelas.update') }}" enctype="multipart/form-data" method="POST">
             @csrf
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Name Class</label>
-                <input type="text" required name="nama" class="form-control shadow-sm" id="exampleFormControlInput1" />
+                <input type="text" required name="nama" class="form-control shadow-sm" id="exampleFormControlInput1" value="{{ $kelas->nama }}" />
+                <input type="hidden" name="kelas_inti_id" value="{{ $kelas->id }}">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Category</label>
@@ -51,23 +52,23 @@
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Price Class</label>
-                <input type="number" name="harga" required class="form-control shadow-sm" id="exampleFormControlInput1">
+                <input type="number" name="harga" required class="form-control shadow-sm" id="exampleFormControlInput1" value="{{ $kelas->harga }}">
               </div>
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label mb-1">Thumbnail Image</label>
-                <img src="{{ Vite::asset('resources/assets/img/uclass/accountimage.png') }}" alt="" class="rounded-3 thumbnail mb-2" style="object-fit: cover; width: 100%; height: 230px" />
-                <input class="form-control shadow-sm" name="gambar" required type="file" id="formFile" />
+                <img src="{{ asset('assets/img/' . $kelas->gambar) }}" alt="" class="rounded-3 thumbnail mb-2" style="object-fit: cover; width: 100%; height: 230px" />
+                <input class="form-control shadow-sm" name="gambar" type="file" id="formFile" />
               </div>
 
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                <textarea class="form-control shadow-sm" name="deskripsi"  required id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control shadow-sm" name="deskripsi" required id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
 
               <div class="button d-flex justify-content-end gap-2">
                 <a href="../admin-class/class.html" class="btn btn-danger fw-bold">CANCEL</a>
-                <button type="submit" class="btn btn-success fw-bold">ADD</button>
+                <button type="submit" class="btn btn-success fw-bold">UPDATE</button>
               </div>
             </form>
           </div>

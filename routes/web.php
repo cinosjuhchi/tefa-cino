@@ -196,4 +196,9 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('uclass-plan', [KelasCategoryController::class, 'rumah'])->name('uclass.plan');
     Route::get('form-class', [KelasCategoryController::class, 'formClass'])->name('uclass.form.class');
     Route::post('form-class/store', [KelasCategoryController::class, 'addClass'])->name('uclass.form.store');
+    Route::get('form-class/video/{id}', [KelasCategoryController::class, 'formVideo'])->name('uclass.form.kelas');
+    Route::get('form-class/kelas/{id}', [KelasCategoryController::class, 'formUpdate'])->name('uclass.form.update.index');
+    Route::post('form-class/kelas/update', [KelasCategoryController::class, 'updateClass']) ->name('uclass.form.kelas.update');
+    Route::get('form-class/kategori/{id}', [KelasCategoryController::class, 'formUpdateCategory'])->name('uclass.form.category.update.index');
+    Route::post('form-class/kelas/update', [KelasCategoryController::class, 'updateCategory']) ->name('uclass.form.kategori.update');
 });

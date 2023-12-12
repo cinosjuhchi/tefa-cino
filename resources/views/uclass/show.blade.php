@@ -1,28 +1,23 @@
 @extends('layouts.show-lay')
 @section('main')    
     <nav class="d-flex justify-content-between align-items-center py-3 px-4 shadow bg-warning sticky-top">
-      <a href="{{ route('user.preview-kelas', ['id' => $materi->kelas_inti_id]) }}" class="nav-link">
+      <a href="{{ route('user.preview-kelas', ['id' => $materi->kelas_inti_id]) }}" class="nav-link" style="color:
+      white;">
         <div class="back d-flex gap-2 fs-5">
           <i class="bi bi-arrow-left"></i>
-          <p class="m-0">Back</p>
+          <p class="m-0 text-light">Back</p>
         </div>
       </a>
       <div class="title">
-        <p class="m-0 fs-5 fw-bold">{{ $materi->nama }}</p>
+        <p class="m-0 fs-5 fw-bold text-white">{{ $materi->nama }}</p>
       </div>
     </nav>  
     <div class="container content vh-100">
       <div class="row my-4">
-        <div class="video col-md-12 col-lg-8">
-          <iframe
-            height="418"
-            src="{{ $materi->link_vid }}"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            class="col-12 rounded-2 shadow-sm object-fit-cover"
-          ></iframe>
+        <div class="video col-md-12 col-lg-8">        
+          <div class="col-12 rounded-2 shadow-sm dev">
+            {!! $materi->link_vid !!}
+          </div>
 
           <div class="desc">
             <h3 class="mt-2">{{ $materi->nama }}</h3>
@@ -49,8 +44,8 @@
                 @foreach($kelas as $kelasu)
                 <a href="{{ route('user.video.kelas', ['id' => $kelasu->id]) }}" class="{{ $materi->id === $kelasu->id ? 'text-white' : 'text-dark' }}">                
                   <div class="next d-flex p-2 gap-2 {{  $materi->id === $kelasu->id ? 'active-show' : '' }} mb-2 rounded me-2">
-                    <img src="{{ asset('assets/img/' . $kelasu->gambar) }} }}" alt="" class="thumbnail rounded" style="object-fit: cover; width: 128px; height: 100%" />
-
+                    <img src="{{ asset('assets/img/' . $kelasu->gambar) }}" alt="" class="thumbnail rounded" style="object-fit: cover; width: 128px; height: 100%" />
+                    
                     <div class="description">
                       <p class="fw-bold m-0 limited-lines-1">#{{ ++$index }} {{ $kelasu->nama }}</p>
                       <p class="m-0 limited-lines-2">{{ $kelasu->deskripsi }}</p>

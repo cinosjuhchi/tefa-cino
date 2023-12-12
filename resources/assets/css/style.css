@@ -44,7 +44,6 @@ h6 {
     transition: all 0.4s;
 }
 
-
 .back-to-top i {
     font-size: 28px;
     color: #fff;
@@ -64,11 +63,8 @@ h6 {
     display: -webkit-box;
     -webkit-line-clamp: 1; /* jumlah maksimal baris */
     -webkit-box-orient: vertical;
-  }
-
-  .content {
-    margin-top: 40px;
 }
+
 
 .scrolly {
   overflow-y: scroll;
@@ -84,19 +80,10 @@ h6 {
   border-radius: 92px;
 }
 .scrolly::-webkit-scrollbar-thumb {
-  background: #ffc107;
+  background: #ef6603;
 }
 .scrolly::-webkit-scrollbar-track {
   background: #dee2e6;
-}
-
-.warning {
-  background-color: blue;
-}
-
-.active-show {
-  background-color: #ffc107;
-  
 }
 
 .limited-lines-2 {
@@ -117,6 +104,42 @@ h6 {
   -webkit-box-orient: vertical;
 }
 
+.dev iframe {
+    width: 100% !important;
+    height: 418px !important;
+    object-fit: cover;    
+    border-radius: .25rem;
+}
+
+.text-warning {
+    color: #ef6603 !important;
+}
+
+.text-warning:hover {
+    color: #fc8129 !important;
+}
+
+.border-warning {
+    color: #ef6603 !important;
+}
+
+.bg-warning {
+    background-color: #ef6603 !important;
+}
+
+.btn-warning {
+    background-color: #fc8129 !important;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #fc8129 !important;
+    color: white;
+}
+
+.active-show{
+    background-color: #fc8129 !important;
+} 
 
 /*--------------------------------------------------------------
 # Disable AOS delay on mobile
@@ -306,8 +329,7 @@ h6 {
 
     .content-dev {
         margin-top: 30rem;
-      }
-   
+    }
 }
 
 .navbar-mobile {
@@ -691,8 +713,6 @@ section {
     justify-content: center;
     object-fit: cover;
 }
-
-
 
 /*--------------------------------------------------------------
 # Features

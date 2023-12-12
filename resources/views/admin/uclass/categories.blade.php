@@ -5,8 +5,12 @@
       <div class="row headline mb-4">
         <h1 class="fw-bold">Category List Admin</h1>
         <hr class="border-4 rounded border-warning opacity-100" />
+      </div>  
+      @if(session('success'))
+      <div class="alert alert-success">
+          {{ session('success') }}
       </div>
-
+      @endif
       <div class="row cards">
         @foreach($category as $kate)
         <div class="col-md-6 col-lg-4 mb-4">
@@ -18,7 +22,7 @@
               <p class="card-text limited-lines-2">
                 {{ $kate->body }}
               </p>
-              <a href="#" class="btn btn-warning fw-bold">Edit Category</a>
+              <a href="{{ route('uclass.form.category.update.index', ['id' => $kate->id]) }}" class="btn btn-warning fw-bold">Edit Category</a>
             </div>
           </div>
         </div>        

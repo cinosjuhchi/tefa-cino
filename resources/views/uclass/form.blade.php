@@ -61,7 +61,7 @@
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label mb-1">Preview Class</label>
-                <img src="{{ Vite::asset('resources/assets/img/uclass/' . $kelas->gambar) }}" alt="" class="rounded-3 thumbnail mb-2" style="object-fit: cover; width: 100%; height: 230px" />              
+                <img src="{{ asset('assets/img/' . $kelas->gambar) }}" alt="" class="rounded-3 thumbnail mb-2" style="object-fit: cover; width: 100%; height: 230px" />              
               </div>
 
               <div class="mb-3">

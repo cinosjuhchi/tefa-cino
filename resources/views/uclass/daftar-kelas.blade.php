@@ -19,7 +19,7 @@
               @foreach($category as $cat)
               <h1 class="fw-bold">{{ $cat->title }} Class</h1>
               @endforeach
-              <hr class="border-4 rounded border-warning opacity-100" />
+              <hr class="border-4 rounded text-warning opacity-100" />
             </div>
       
             <div class="row">
